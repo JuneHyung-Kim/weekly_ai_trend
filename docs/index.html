@@ -3,27 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <meta name="description" content="개발자들이 함께 보는 주간 AI 사례" />
-    <title>Weekly AI — 같이 보는 AI 개발 사례</title>
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content="개발자들이 AI 사례를 함께 보고 이야기하는 주간 모임" />
+    <title>Weekly AI — 개발자들의 주간 AI 모임</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <header class="topbar">
-      <a class="brand" href="#top" aria-label="처음으로">WEEKLY AI <span>↗</span></a>
-      <nav id="case-nav" aria-label="사례 바로가기"></nav>
+  <body class="archive-page">
+    <header class="topbar archive-topbar">
+      <a class="brand" href="./" aria-label="Weekly AI 홈">WEEKLY AI <span>↗</span></a>
+      <p class="topbar-note">TOPICS &amp; WEEKS</p>
       <button id="theme-toggle" class="icon-button" type="button" aria-label="색상 모드 전환">◐</button>
     </header>
-
-    <main id="app" tabindex="-1"></main>
-
+    <main id="home-app"></main>
     <footer>
-      <p>원문을 먼저 보고, 화면은 대화를 위한 맥락만 남깁니다.</p>
-      <p id="updated-at"></p>
+      <p>자료는 결론보다 대화가 시작될 만한 장면을 모읍니다.</p>
+      <p>WEEKLY AI · DEVELOPERS' SMALL TALK</p>
     </footer>
-
     <script src="data.js"></script>
-    <script src="app.js"></script>
+    <script src="home.js"></script>
   </body>
 </html>
-

@@ -1,8 +1,48 @@
 window.MEETING_DATA = {
-  currentWeek: "2026-11-ai-code-review",
+  currentWeek: "ai-code-review-01",
+  topics: [
+    {
+      id: "ai-development-methodology",
+      number: "01",
+      title: "AI 시대의 개발 방법론",
+      description: "코드가 만들어지는 방식이 달라질 때 팀의 작업 방식과 책임은 어떻게 달라지는지 살펴봅니다.",
+      subtopics: [
+        {
+          id: "code-review",
+          title: "코드 리뷰",
+          description: "AI가 코드 생산 속도를 높인 뒤 리뷰, 검증, 유지보수에서 벌어지는 변화를 봅니다.",
+          weeks: ["ai-code-review-01"]
+        }
+      ]
+    },
+    {
+      id: "ai-security",
+      number: "02",
+      title: "AI 시대의 보안",
+      description: "AI가 만든 새로운 공격과 방어 사례, 개발 현장의 보안 판단을 다룹니다.",
+      subtopics: []
+    },
+    {
+      id: "model-trends",
+      number: "03",
+      title: "AI 최신 모델 트렌드",
+      description: "새 모델의 숫자 경쟁보다 실제로 달라진 능력과 사용 경험을 비교합니다.",
+      subtopics: []
+    },
+    {
+      id: "agent-adoption",
+      number: "04",
+      title: "최신 AI Agent 활용 동향",
+      description: "개인 도구부터 조직의 업무 흐름까지, 에이전트가 실제로 쓰이는 장면을 봅니다.",
+      subtopics: []
+    }
+  ],
   weeks: [
     {
-      id: "2026-11-ai-code-review",
+      id: "ai-code-review-01",
+      ordinal: "W01",
+      topicId: "ai-development-methodology",
+      subtopicId: "code-review",
       dateLabel: "2026 · 11",
       topic: "AI 시대의 개발 방법론",
       subtopic: "코드 리뷰",
@@ -105,4 +145,3 @@ window.MEETING_DATA = {
     }
   ]
 };
-

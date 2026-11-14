@@ -1,6 +1,7 @@
 (() => {
   const data = window.MEETING_DATA;
-  const week = data.weeks.find((item) => item.id === data.currentWeek) || data.weeks[0];
+  const requestedWeek = document.body.dataset.weekId || data.currentWeek;
+  const week = data.weeks.find((item) => item.id === requestedWeek) || data.weeks[0];
   const app = document.querySelector("#app");
   const nav = document.querySelector("#case-nav");
 
@@ -136,4 +137,3 @@
     }
   });
 })();
-

@@ -1,8 +1,7 @@
 timezone: Asia/Seoul
 weeks:
-  - id: 2026-11-ai-code-review
+  - id: ai-code-review-01
     status: draft
     topic: ai-development-methodology
     subtopic: code-review
     scope: AI 툴로 코딩하는 속도와 코드를 검증하고 유지보수하는 속도의 변화
-
