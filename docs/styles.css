@@ -231,7 +231,7 @@ footer p { margin: 0; }
 /* Compact editorial home */
 .masthead { padding: clamp(80px, 11vh, 130px) 0 54px; border-bottom: 1px solid var(--text); }
 .masthead-meta { display: flex; justify-content: space-between; color: var(--muted); font: 700 9px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; }
-.masthead h1 { margin: clamp(50px, 8vh, 90px) 0 0; font-size: clamp(82px, 15vw, 230px); line-height: .68; letter-spacing: -.095em; white-space: nowrap; }
+.masthead h1 { margin: clamp(50px, 8vh, 90px) 0 0; font-size: clamp(56px, 10.7vw, 154px); line-height: .78; letter-spacing: -.085em; }
 .masthead h1 em { color: var(--lime); font-style: normal; }
 .masthead > p { margin: 45px 0 0; color: var(--muted); font-size: 15px; }
 .catalog { padding: 34px 0 130px; }
@@ -296,7 +296,7 @@ a.week-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb
   .subtopic-list { grid-column: 2; }
   .week-grid { grid-template-columns: 1fr; }
   .directory-topic { grid-template-columns: 1fr; gap: 28px; }
-  .masthead h1 { font-size: 14.5vw; }
+  .masthead h1 { font-size: 10.7vw; }
 }
 
 @media (max-width: 560px) {
@@ -345,7 +345,8 @@ a.week-card:hover { transform: translateY(-4px); border-color: color-mix(in srgb
   .masthead { padding: 75px 0 42px; }
   .masthead-meta span:first-child { display: none; }
   .masthead-meta { justify-content: flex-end; }
-  .masthead h1 { margin-top: 65px; font-size: 20vw; white-space: normal; line-height: .78; }
+  .archive-topbar .brand { font-size: 10px; letter-spacing: .06em; }
+  .masthead h1 { margin-top: 65px; font-size: 12vw; line-height: .82; }
   .masthead > p { margin-top: 32px; }
   .catalog-grid { grid-template-columns: 1fr; }
   .catalog-card { min-height: 220px; padding: 24px; }

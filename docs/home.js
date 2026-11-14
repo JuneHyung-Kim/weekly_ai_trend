@@ -24,9 +24,7 @@
 
   app.innerHTML = `
     <section class="masthead archive-shell">
-      <div class="masthead-meta"><span>DEVELOPERS' SMALL TALK</span><span>VOL. 01 · 2026</span></div>
-      <h1>WEEKLY <em>AI</em></h1>
-      <p>개발자들이 함께 보는 AI 사례</p>
+      <h1>QUESTIONS FOR<br>THE <em>AI AGE</em></h1>
     </section>
     <section class="catalog archive-shell" aria-labelledby="catalog-heading">
       <div class="catalog-heading"><span>INDEX</span><h2 id="catalog-heading">TOPICS</h2></div>
