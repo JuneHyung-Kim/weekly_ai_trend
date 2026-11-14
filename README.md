@@ -14,8 +14,7 @@ python3 -m http.server 4173 --directory docs
 
 - `docs/`: GitHub Pages에 공개되는 사이트
 - `docs/index.html`: 대주제와 소주제를 보여주는 메인 화면
-- `docs/topics/`: 소주제별 주차 아카이브
-- `docs/weeks/`: 모임에서 띄우는 주차별 발표 화면
+- `docs/weeks/`: 메인에서 바로 열리는 회차별 발표 화면
 - `docs/data.js`: 화면 전체가 공유하는 주제, 주차, 출처 데이터
 - `planning/`: 주제, 일정, 사용 이력 등 공개하지 않을 운영 자료
 - `automation/weekly-task.md`: Codex 예약 작업에 사용할 지침
@@ -27,5 +26,4 @@ python3 -m http.server 4173 --directory docs
 현재 공개 경로는 다음 구조를 사용합니다.
 
 - `/weekly_ai_trend/`: 전체 목차
-- `/weekly_ai_trend/topics/ai-development-methodology/code-review/`: 코드 리뷰 아카이브
 - `/weekly_ai_trend/weeks/ai-code-review-01/`: 코드 리뷰 Week 01 화면
