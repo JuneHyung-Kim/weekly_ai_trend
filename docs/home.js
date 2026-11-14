@@ -18,7 +18,7 @@
       <a class="session-link" href="weeks/${escapeHtml(week.id)}/">
         <span class="session-name">${escapeHtml(subtopic.title)} ${String(index).padStart(2, "0")}</span>
         <strong>${escapeHtml(week.title).replace("\n", " ")}</strong>
-        <small>${week.id === data.currentWeek ? "NOW · " : ""}${escapeHtml(week.ordinal)} · 사례 ${week.cases.length}개</small>
+        <small>${escapeHtml(week.ordinal)} · 사례 ${week.cases.length}개</small>
         <b aria-hidden="true">↗</b>
       </a>`).join("");
   };
