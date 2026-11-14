@@ -1,0 +1,20 @@
+materials:
+  - url: https://www.anthropic.com/research/redesigning-source-control
+    status: used
+    week: 2026-11-ai-code-review
+  - url: https://claude.com/resources/articles/code-review
+    status: used
+    week: 2026-11-ai-code-review
+  - url: https://www.mertdemirer.com/Papers/Demirer_AI_productivity.pdf
+    status: used
+    week: 2026-11-ai-code-review
+  - url: https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
+    status: used
+    week: 2026-11-ai-code-review
+  - url: https://metr.org/blog/2026-02-24-uplift-update/
+    status: used
+    week: 2026-11-ai-code-review
+  - url: https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESEM.2026.93
+    status: used
+    week: 2026-11-ai-code-review
+

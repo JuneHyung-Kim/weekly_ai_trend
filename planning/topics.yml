@@ -1,0 +1,17 @@
+topics:
+  - id: ai-development-methodology
+    title: AI 시대의 개발 방법론
+    subtopics:
+      - id: code-review
+        title: 코드 리뷰
+        context: AI로 코드 생산이 빨라진 환경에서 구현, 검증, 이해, 유지보수 방식을 살펴본다.
+  - id: ai-security
+    title: AI 시대의 보안
+    subtopics: []
+  - id: model-trends
+    title: AI 최신 모델 트렌드
+    subtopics: []
+  - id: agent-adoption
+    title: 최신 AI Agent 활용 동향
+    subtopics: []
+
