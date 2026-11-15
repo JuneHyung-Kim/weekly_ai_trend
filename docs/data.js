@@ -50,98 +50,136 @@ window.MEETING_DATA = {
       dateLabel: "2026 · 11",
       topic: "AI 시대의 개발 방법론",
       subtopic: "코드 리뷰",
-      title: "코드를 만드는 속도가\n이해하는 속도를 앞설 때",
+      title: "After the\nPull Request",
       intro:
-        "AI는 더 많은 코드를 더 빠르게 만든다. 실제 팀에서는 코드 작성뿐 아니라 리뷰, CI, 소스 관리까지 다시 설계하기 시작했다. 서로 다른 세 장면을 한 화면씩 본다.",
+        "PR을 끈 팀. 사람 리뷰를 생략한 팀. 사람의 책임을 강제한 프로젝트.",
       cases: [
         {
-          id: "volume",
-          eyebrow: "CASE 01 · 생성량",
-          title: "하루 2,500개에서 30,000개로",
-          summary:
-            "Anthropic은 2026년 5월 하루 약 2,500건이던 병합 변경이 9월 30,000건 이상으로 늘었다고 공개했다. 코딩보다 기존 Git, 빌드, CI가 먼저 병목이 되었고 결국 사내 버전 관리 시스템까지 새로 만들었다.",
-          caveat: "Anthropic의 자체 사례이며 일반적인 개발 조직보다 AI 사용량이 매우 높다.",
+          id: "no-prs",
+          eyebrow: "ZED · DELTA",
+          title: "Pull Requests: OFF",
+          facts: [
+            "Zed는 Delta 저장소의 Pull Request 기능을 껐다.",
+            "리뷰어는 diff와 함께 원래 에이전트 대화와 worktree를 넘겨받는다.",
+            "33명이 이 방식으로 main에 570개 변경을 반영했다."
+          ],
+          caveat: "제품 발표 · 자사 저장소 사용 사례",
           visual: {
-            type: "growth",
-            startLabel: "MAY",
-            startValue: "2,500",
-            endLabel: "SEP",
-            endValue: "30,000+",
-            ratio: "12×+",
-            caption: "merged changes / day"
+            type: "source-image",
+            src: "../../assets/zed-no-prs.webp",
+            alt: "Zed Delta 저장소에서 Pull Request 기능을 끈 화면",
+            caption: "ZED INDUSTRIES · DELTA REPOSITORY"
           },
           sources: [
             {
-              label: "Redesigning source control at Anthropic",
-              publisher: "Anthropic Engineering",
-              date: "2026-10-13",
-              url: "https://www.anthropic.com/research/redesigning-source-control"
+              label: "Replace PRs with Delta — Now in Public Beta",
+              publisher: "Zed Industries",
+              date: "2026-09-16",
+              url: "https://zed.dev/blog/delta-public-beta"
             }
           ]
         },
         {
-          id: "productivity",
-          eyebrow: "CASE 02 · 생산성",
-          title: "AI를 쓰면 정말 더 빨라질까",
-          summary:
-            "기업 개발자 4,867명을 다룬 실험은 완료 작업 수가 약 26% 증가한 것으로 추정했다. 반면 익숙한 대형 오픈소스에서 일한 숙련 개발자 16명의 2025년 실험에서는 작업 시간이 19% 늘었다. 도구의 효과는 작업과 환경에 따라 크게 달라진다.",
-          caveat:
-            "서로 다른 연구 설계와 시기의 결과다. METR은 2026년 후속 실험에서 최근 도구의 향상 가능성을 봤지만 선택 편향 때문에 정확한 효과를 추정하지 못했다고 밝혔다.",
+          id: "two-policies",
+          eyebrow: "OPENAI / PYTEST / LINUX",
+          title: "사람 리뷰: 선택 / 필수",
+          facts: [
+            "OpenAI의 내부 실험은 사람이 직접 작성한 코드 0줄로 제품을 만들었다.",
+            "pytest는 사람이 이해하지 못한 순수 에이전트 PR을 받지 않는다.",
+            "Linux의 Signed-off-by는 사람만 추가할 수 있다."
+          ],
+          caveat: "내부 제품 실험과 공개 오픈소스 정책의 대비",
           visual: {
-            type: "split",
-            left: { label: "기업 현장 실험", value: "+26%", note: "완료 작업 수", tone: "positive" },
-            right: { label: "숙련 OSS 실험", value: "−19%", note: "작업 속도", tone: "negative" }
+            type: "policy-split",
+            left: {
+              label: "OPENAI",
+              value: "0",
+              unit: "handwritten lines",
+              lines: ["agent self-review", "human review may be omitted"]
+            },
+            right: {
+              label: "PYTEST / LINUX",
+              value: "HUMAN",
+              unit: "must understand & own",
+              lines: ["purely agentic PRs closed", "Signed-off-by: humans only"]
+            }
           },
           sources: [
             {
-              label: "The Effects of Generative AI on High-Skilled Work",
-              publisher: "Cui et al.",
-              date: "2025-06",
-              url: "https://www.mertdemirer.com/Papers/Demirer_AI_productivity.pdf"
+              label: "Harness engineering: leveraging Codex in an agent-first world",
+              publisher: "OpenAI",
+              date: "2026-02-11",
+              url: "https://openai.com/index/harness-engineering/"
             },
             {
-              label: "Early-2025 AI and experienced OSS developers",
-              publisher: "METR",
-              date: "2025-07-10",
-              url: "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/"
+              label: "AI/LLM-Assisted Contributions Policy",
+              publisher: "pytest",
+              date: "2026",
+              url: "https://github.com/pytest-dev/pytest/blob/main/CONTRIBUTING.rst"
             },
             {
-              label: "Productivity experiment design update",
-              publisher: "METR",
-              date: "2026-02-24",
-              url: "https://metr.org/blog/2026-02-24-uplift-update/"
+              label: "AI Coding Assistants",
+              publisher: "Linux kernel",
+              date: "2026",
+              url: "https://www.kernel.org/dochtml/latest/process/coding-assistants.html"
             }
           ]
         },
         {
-          id: "review",
-          eyebrow: "CASE 03 · 검증",
-          title: "AI가 만들고, AI가 리뷰하고, 사람이 승인한다",
-          summary:
-            "Anthropic은 코드 생산량 증가로 리뷰가 병목이 되자 거의 모든 PR에 다중 에이전트 리뷰를 적용했다. 실질적인 리뷰 코멘트가 달린 PR 비율은 16%에서 54%로 늘었다고 한다. 그래도 최종 승인은 사람의 결정으로 남겨두었다.",
-          caveat:
-            "리뷰 성능 수치는 제품 공급업체의 내부 측정이다. 독립적인 Meta 연구에서는 AI 코드가 포함된 변경의 리뷰 시간이 짧았지만, AI가 덜 핵심적인 코드에 쓰이는 경향 때문에 단순 인과로 볼 수 없다고 지적했다.",
+          id: "different-reviews",
+          eyebrow: "278,790 REVIEW CONVERSATIONS",
+          title: "AI는 수정했고, 사람은 물었다",
+          facts: [
+            "AI 리뷰의 95% 이상은 코드 개선과 결함 탐지에 집중했다.",
+            "사람은 구현 의도, 테스트, 저장소 관례를 더 자주 다뤘다.",
+            "AI가 시작한 리뷰의 85% 이상은 첫 코멘트 뒤 대화가 없었다."
+          ],
+          caveat: "300개 공개 프로젝트 · 관찰 연구 · arXiv preprint",
           visual: {
-            type: "flow",
-            steps: [
-              { label: "AI", detail: "코드 생성", accent: true },
-              { label: "AI 팀", detail: "병렬 검토" },
-              { label: "사람", detail: "승인 판단", accent: true }
-            ],
-            stat: { before: "16%", after: "54%", label: "substantive review comments" }
+            type: "review-roles",
+            left: {
+              label: "AI REVIEW",
+              value: "16.6%",
+              note: "suggestions adopted",
+              words: ["DEFECT", "IMPROVEMENT", "PATCH"]
+            },
+            right: {
+              label: "HUMAN REVIEW",
+              value: "56.5%",
+              note: "suggestions adopted",
+              words: ["WHY?", "TEST?", "CONTEXT?"]
+            }
           },
           sources: [
             {
-              label: "Bringing Code Review to Claude Code",
-              publisher: "Anthropic",
-              date: "2026-03-09",
-              url: "https://claude.com/resources/articles/code-review"
-            },
+              label: "Human-AI Synergy in Agentic Code Review",
+              publisher: "Zhong et al.",
+              date: "2026-10-30",
+              url: "https://arxiv.org/abs/2603.15911"
+            }
+          ]
+        },
+        {
+          id: "rewrite",
+          eyebrow: "ONE ENGINEER · 5–6 AGENTS",
+          title: "4,000줄을 수백 줄로",
+          facts: [
+            "Ben Stolovitz는 평소 5~6개의 코딩 에이전트를 병렬로 사용한다.",
+            "에이전트는 코드, 테스트, PR 작성과 리뷰까지 수행한다.",
+            "그가 올해 가장 성공적이었다고 꼽은 작업은 AI 코드 약 4,000줄을 사람이 쓴 수백 줄로 교체한 일이었다."
+          ],
+          caveat: "Salesforce AI Research 엔지니어의 개인 작업 기록",
+          visual: {
+            type: "rewrite",
+            before: { label: "VIBE CODE", value: "~4,000", unit: "lines" },
+            after: { label: "HANDWRITTEN", value: "100s", unit: "lines" }
+          },
+          sources: [
             {
-              label: "AI-assisted code quality and review time at scale",
-              publisher: "ESEM 2026",
-              date: "2026-10-05",
-              url: "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESEM.2026.93"
+              label: "How I use AI (Oct 2026)",
+              publisher: "Ben Stolovitz",
+              date: "2026-10",
+              url: "https://ben.stolovitz.com/posts/how-use-ai-oct-2026/"
             }
           ]
         }

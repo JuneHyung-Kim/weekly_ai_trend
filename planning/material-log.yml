@@ -17,3 +17,21 @@ materials:
   - url: https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESEM.2026.93
     status: used
     week: ai-code-review-01
+  - url: https://zed.dev/blog/delta-public-beta
+    status: used
+    week: ai-code-review-01
+  - url: https://openai.com/index/harness-engineering/
+    status: used
+    week: ai-code-review-01
+  - url: https://github.com/pytest-dev/pytest/blob/main/CONTRIBUTING.rst
+    status: used
+    week: ai-code-review-01
+  - url: https://www.kernel.org/dochtml/latest/process/coding-assistants.html
+    status: used
+    week: ai-code-review-01
+  - url: https://arxiv.org/abs/2603.15911
+    status: used
+    week: ai-code-review-01
+  - url: https://ben.stolovitz.com/posts/how-use-ai-oct-2026/
+    status: used
+    week: ai-code-review-01

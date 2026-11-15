@@ -14,6 +14,45 @@
       .replaceAll("'", "&#039;");
 
   const renderVisual = (visual) => {
+    if (visual.type === "source-image") {
+      return `
+        <figure class="source-image">
+          <img src="${escapeHtml(visual.src)}" alt="${escapeHtml(visual.alt)}">
+          <figcaption>${escapeHtml(visual.caption)}</figcaption>
+        </figure>`;
+    }
+
+    if (visual.type === "policy-split") {
+      const renderPolicy = (item, tone) => `
+        <div class="policy-side ${tone}">
+          <span>${escapeHtml(item.label)}</span>
+          <strong>${escapeHtml(item.value)}</strong>
+          <small>${escapeHtml(item.unit)}</small>
+          <ul>${item.lines.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+        </div>`;
+      return `<div class="policy-split" role="img" aria-label="OpenAI 내부 실험과 pytest, Linux의 사람 책임 정책 비교">${renderPolicy(visual.left, "open")}${renderPolicy(visual.right, "strict")}</div>`;
+    }
+
+    if (visual.type === "review-roles") {
+      const renderRole = (item, tone) => `
+        <div class="review-role ${tone}">
+          <span>${escapeHtml(item.label)}</span>
+          <strong>${escapeHtml(item.value)}</strong>
+          <small>${escapeHtml(item.note)}</small>
+          <div>${item.words.map((word) => `<b>${escapeHtml(word)}</b>`).join("")}</div>
+        </div>`;
+      return `<div class="review-roles" role="img" aria-label="AI 리뷰와 사람 리뷰의 수정안 채택률과 주로 다룬 내용 비교">${renderRole(visual.left, "agent")}${renderRole(visual.right, "human")}</div>`;
+    }
+
+    if (visual.type === "rewrite") {
+      return `
+        <div class="rewrite-visual" role="img" aria-label="AI가 만든 약 4천 줄을 사람이 작성한 수백 줄로 교체">
+          <div class="rewrite-before"><span>${escapeHtml(visual.before.label)}</span><strong>${escapeHtml(visual.before.value)}</strong><small>${escapeHtml(visual.before.unit)}</small></div>
+          <i>→</i>
+          <div class="rewrite-after"><span>${escapeHtml(visual.after.label)}</span><strong>${escapeHtml(visual.after.value)}</strong><small>${escapeHtml(visual.after.unit)}</small></div>
+        </div>`;
+    }
+
     if (visual.type === "growth") {
       return `
         <div class="growth-chart" role="img" aria-label="하루 병합 변경이 2,500건에서 30,000건 이상으로 증가">
@@ -94,7 +133,7 @@
           </div>
           <div class="visual-panel">${renderVisual(item.visual)}</div>
           <div class="case-copy">
-            <p class="summary">${escapeHtml(item.summary)}</p>
+            ${item.facts ? `<ul class="fact-list">${item.facts.map((fact) => `<li>${escapeHtml(fact)}</li>`).join("")}</ul>` : `<p class="summary">${escapeHtml(item.summary)}</p>`}
             <p class="caveat"><span>맥락</span>${escapeHtml(item.caveat)}</p>
           </div>
           ${renderSources(item.sources)}
