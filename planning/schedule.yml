@@ -4,7 +4,8 @@ weeks:
     status: draft
     topic: ai-development-methodology
     subtopic: code-review
-    scope: AI가 코드 작성자가 된 뒤 리뷰의 대상, 방식, 책임이 서로 다르게 바뀌는 사례
+    scope: 병렬 에이전트 작업, 검토 대기, 저장소 리뷰 규칙, 맥락을 공유하는 동료 리뷰의 실제 과정
+    private_notes: planning/research/code-review-01-workflows.md
   - id: workflow-automation-01
     status: draft
     topic: agent-adoption

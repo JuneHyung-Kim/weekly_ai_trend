@@ -47,3 +47,19 @@ materials:
     status: reviewed
     week: workflow-automation-01
     note: 2025년 배경 자료. 법무 안내 프로토타입은 구체적인 화면이 부족해 제외.
+  - url: https://blog.bustikiller.com/2026/09/25/one-month-without-ai.html
+    status: used
+    week: ai-code-review-01
+    note: 2026-11-17 재편집. 병렬 구현 후 검토가 밀린 개인 회고. 이틀은 순수 검토 시간이 아님.
+  - url: https://developers.openai.com/blog/custom-code-review-rules-for-codex
+    status: used
+    week: ai-code-review-01
+    note: 2026-11-17 재편집. 공식 설명용 diff와 실제 규칙 추가 PR을 구분.
+  - url: https://github.com/openai/codex/pull/29086
+    status: used
+    week: ai-code-review-01
+    note: 실제 호환성 리뷰 규칙 추가. 2026-06-19 병합.
+  - url: https://github.com/mumble-voip/mumble/pull/7136
+    status: used
+    week: ai-code-review-01
+    note: Ben이 연결한 실제 AI 리뷰. 2026-03-22 알림 순서 지적. 최종 해결 여부를 단정하지 않음.

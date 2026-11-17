@@ -1,7 +1,7 @@
 # AI Code Review 01 — candidate scenes
 
 조사일: 2026-11-15
-상태: 내부 편집 후보. 아직 공개 페이지에 사용하지 않음.
+상태: 초기 조사·편집 이력. 현재 회차 구성은 `code-review-01-workflows.md`를 따른다.
 
 ## 2026-11-15 편집 결과
 

@@ -139,25 +139,195 @@ window.MEETING_DATA = {
       dateLabel: "2026 · 11",
       topic: "AI 시대의 개발 방법론",
       subtopic: "코드 리뷰",
-      title: "After the\nPull Request",
-      intro:
-        "PR을 끈 팀. 사람 리뷰를 생략한 팀. 사람의 책임을 강제한 프로젝트.",
+      title: "AI 코딩과 코드 리뷰",
+      intro: "일을 맡기고, 결과를 이해하고, 동료에게 넘기는 방식. 개발자와 팀의 실제 작업 과정을 살펴봅니다.",
+      presentation: "workflows",
       cases: [
         {
-          id: "no-prs",
-          eyebrow: "ZED · DELTA",
-          title: "Pull Requests: OFF",
-          facts: [
-            "Zed는 Delta 저장소의 Pull Request 기능을 껐다.",
-            "리뷰어는 diff와 함께 원래 에이전트 대화와 worktree를 넘겨받는다.",
-            "33명이 이 방식으로 main에 570개 변경을 반영했다."
+          id: "parallel-agents",
+          eyebrow: "BEN STOLOVITZ · 2026-10",
+          title: "여러 에이전트가 만들고, 사람은 무엇을 보나",
+          shortTitle: "병렬 작업과 검토",
+          kind: "parallel",
+          context: "Ben Stolovitz는 기능 구현과 버그 재현을 에이전트에 나눠 맡긴다. 각 작업은 별도 Git worktree에서 진행하고, 사람이 draft PR을 검토하고 직접 테스트한다.",
+          boundary: "개인 작업 기록 · 저자가 설명한 작업 방식을 재구성",
+          steps: [
+            {
+              label: "작업 분리",
+              title: "에이전트마다 별도 worktree",
+              text: "동시에 5~6개 에이전트를 사용한다. 기능이나 버그 재현처럼 작업 단위를 나누고, 각 에이전트에 독립된 코드 사본을 준다.",
+              actor: "사람 → 에이전트"
+            },
+            {
+              label: "구현",
+              title: "코드·테스트·PR까지 맡긴다",
+              text: "공개 화면에서는 Mumble 클라이언트의 오디오 파이프라인에 RNNoise를 연결하도록 요청한다. 원문은 이 작업의 커밋도 연결한다.",
+              actor: "에이전트"
+            },
+            {
+              label: "사람 검토",
+              title: "직접 테스트하고 구조를 본다",
+              text: "저자는 코드를 검토하고 수동으로 테스트한다고 쓴다. 줄 단위 검토보다 아키텍처와 큰 패턴에 집중한다.",
+              actor: "사람"
+            },
+            {
+              label: "규칙 반영",
+              title: "반복되는 문제를 리뷰 규칙으로",
+              text: "생성 코드에서 같은 문제가 반복되면 AI 리뷰어용 규칙을 만든다. CLAUDE.md 지침과 테스트 하네스도 검토 대상으로 삼는다.",
+              actor: "사람 → 다음 작업"
+            }
           ],
-          caveat: "제품 발표 · 자사 저장소 사용 사례",
-          visual: {
-            type: "source-image",
-            src: "../../assets/zed-no-prs.webp",
-            alt: "Zed Delta 저장소에서 Pull Request 기능을 끈 화면",
-            caption: "ZED INDUSTRIES · DELTA REPOSITORY"
+          artifact: {
+            type: "image",
+            src: "../../assets/ben-agent-worktree.webp",
+            alt: "Ben이 공개한 RNNoise 구현 요청과 별도 작업 목록이 보이는 Claude Code 화면",
+            caption: "원문 공개 화면 · RNNoise 작업 요청 · 2026-10",
+            link: "https://github.com/citelao/mumbo/commit/a92fd3117bde8cf0fa8e323aaa64093eb4466396"
+          },
+          detailTitle: "AI 리뷰가 실제로 지적한 내용",
+          detail: "저자가 연결한 별도의 Mumble PR #7136에서 CodeRabbit은 Windows 알림이 앱 내부 음소거 상태 검증보다 먼저 실행될 수 있다고 지적했다. 제안은 검증과 상태 변경이 성공한 뒤 알림을 보내도록 순서를 바꾸는 것이다. 이 지적을 소개하는 것이며, 최종 수정 결과를 단정하지 않는다.",
+          sources: [
+            {
+              label: "개발자의 작업 기록",
+              publisher: "Ben Stolovitz",
+              date: "2026-10",
+              url: "https://ben.stolovitz.com/posts/how-use-ai-oct-2026/"
+            },
+            {
+              label: "실제 AI 리뷰 · Mumble PR #7136",
+              publisher: "mumble-voip/mumble",
+              date: "2026-03-22 · 리뷰",
+              url: "https://github.com/mumble-voip/mumble/pull/7136"
+            }
+          ]
+        },
+        {
+          id: "review-queue",
+          eyebrow: "BUSTIKILLER · 2026-09-25",
+          title: "작업은 병렬로, 검토는 한 사람에게",
+          shortTitle: "검토가 밀린 경험",
+          kind: "queue",
+          context: "다른 개발자는 Jira 티켓을 CLI로 연결하고, 여러 worktree에서 에이전트를 병렬 실행했다. 익숙하지 않은 코드베이스에서 구현 속도와 자신의 이해 속도가 벌어졌다고 기록했다.",
+          boundary: "한 개발자의 회고 · 시간은 개인 사례이며 일반적인 생산성 측정이 아님",
+          steps: [
+            {
+              label: "티켓 위임",
+              title: "Jira 티켓을 별도 worktree에",
+              text: "ACLI로 Jira를 연결하고 티켓 구현을 에이전트에 맡겼다. 큰 작업의 분해도 AI에 맡기면서 여러 작업을 동시에 진행했다.",
+              actor: "사람 → 여러 에이전트"
+            },
+            {
+              label: "검토 대기",
+              title: "구현이 끝나도 검토는 남는다",
+              text: "직접 하면 20분일 작업을 AI가 5분에 만들었지만, 다른 작업과 문맥 전환 때문에 검토까지 이틀이 걸린 경우가 있었다. 이틀은 순수 리뷰 시간이 아니다.",
+              actor: "사람에게 대기"
+            },
+            {
+              label: "동료 리뷰",
+              title: "테스트가 바뀐 동작을 검사하지 않았다",
+              text: "동료는 PR의 테스트가 실제 변경 시나리오를 검증하지 않는다고 지적했다. 저자는 다시 확인한 뒤 그 지적이 맞았다고 인정했다. 원문에는 해당 diff가 공개돼 있지 않다.",
+              actor: "동료 → 작성자"
+            },
+            {
+              label: "이후 방식",
+              title: "AI를 중단하고 작은 PR로 돌아갔다",
+              text: "저자는 AI 사용을 중단하고 TDD, 파일 다섯 개 정도의 작은 PR, 짧은 설명과 동료 리뷰로 돌아갔다고 썼다. 이 선택은 저자 개인의 대응이다.",
+              actor: "사람"
+            }
+          ],
+          detailTitle: "같은 병렬 작업, 서로 다른 대응",
+          detail: "Ben은 에이전트를 계속 사용하며 검토와 규칙을 조정했다. 이 개발자는 작업량과 문맥 전환이 자신의 검토 능력을 넘어섰다고 보고 사용을 중단했다. 두 기록은 서로 다른 환경의 개인 경험이다.",
+          sources: [
+            {
+              label: "One month without AI",
+              publisher: "bustikiller",
+              date: "2026-09-25",
+              url: "https://blog.bustikiller.com/2026/09/25/one-month-without-ai.html"
+            }
+          ]
+        },
+        {
+          id: "review-rules",
+          eyebrow: "OPENAI · 2026-07-20",
+          title: "diff에 없는 호환성 맥락을 규칙으로 남긴다",
+          shortTitle: "팀의 리뷰 규칙",
+          kind: "rules",
+          context: "Codex app-server의 알림은 experimental이어도 Codex Cloud가 사용한다. 팀은 이 연동 경계를 보호하기 위해 AGENTS.md에 리뷰 규칙을 추가했다.",
+          boundary: "공개 PR은 실제 규칙 추가 · 아래 이름 변경과 예상 코멘트는 공식 글의 설명용 예시",
+          steps: [
+            {
+              label: "변경 보기",
+              title: "알림 이름을 정리한다면",
+              text: "rawResponseItem/completed를 rawResponseItem/done으로 바꾸는 예시다. 컴파일되더라도 기존 이름을 듣는 소비자는 알림을 받지 못할 수 있다.",
+              actor: "예시 diff"
+            },
+            {
+              label: "규칙 보기",
+              title: "experimental이어도 연동 경계를 보존",
+              text: "팀의 AGENTS.md는 rawResponseItem/* 이벤트를 호환성에 민감한 대상으로 다룬다. 이를 남긴 PR #29086은 2026-06-19에 병합됐다.",
+              actor: "실제 팀 규칙"
+            },
+            {
+              label: "검토 연결",
+              title: "지켜야 할 계약을 찾아 지적한다",
+              text: "공식 글의 예상 코멘트는 기존 알림을 유지하거나 하위 호환 이벤트를 추가하라고 설명한다. 실제로 발생한 회귀나 리뷰 결과를 재현한 것은 아니다.",
+              actor: "공식 설명용 예시"
+            }
+          ],
+          sources: [
+            {
+              label: "Custom Code Review rules for Codex",
+              publisher: "OpenAI",
+              date: "2026-07-20",
+              url: "https://developers.openai.com/blog/custom-code-review-rules-for-codex"
+            },
+            {
+              label: "규칙을 추가한 실제 PR #29086",
+              publisher: "openai/codex",
+              date: "2026-06-19",
+              url: "https://github.com/openai/codex/pull/29086"
+            }
+          ]
+        },
+        {
+          id: "delta-review",
+          eyebrow: "ZED · 2026-09-16",
+          title: "diff와 함께 작성 당시의 맥락을 넘긴다",
+          shortTitle: "동료에게 맥락 넘기기",
+          kind: "delta",
+          context: "Zed는 Delta 자체 저장소의 PR을 끄고, 에이전트 대화가 있는 thread 안에서 구현·리뷰·반영을 진행한다고 발표했다. Zed 편집기 저장소 전체가 PR을 없앴다는 뜻은 아니다.",
+          boundary: "제품 발표와 자사 사용 사례 · 아래 과정은 공식 설명을 도식화",
+          steps: [
+            {
+              label: "작성",
+              title: "에이전트와 작업한 thread",
+              text: "코드 변경과 에이전트 대화가 함께 남는다. 기존 diff만으로는 다시 파악해야 했던 의사결정 맥락을 이 thread에서 볼 수 있다.",
+              actor: "작성자 + 에이전트"
+            },
+            {
+              label: "검토 초대",
+              title: "review subthread와 독립 worktree",
+              text: "동료는 원래 에이전트 맥락과 변경을 함께 받는다. 별도 worktree 사본에서 코드를 탐색하고 수정안을 시험해볼 수 있다.",
+              actor: "동료 + 에이전트"
+            },
+            {
+              label: "수정",
+              title: "요청하거나 직접 고친다",
+              text: "리뷰어가 문제를 찾으면 수정을 요청하거나 에이전트와 직접 고칠 수 있다. 검토 중 수정은 원래 thread에 반영할 수 있다.",
+              actor: "작성자 ↔ 동료"
+            },
+            {
+              label: "반영",
+              title: "thread에서 변경을 반영한다",
+              text: "수정 반영 후 에이전트에 land를 요청한다. Git 커밋은 push·pull·build의 체크포인트로 남는다.",
+              actor: "에이전트"
+            }
+          ],
+          artifact: {
+            type: "video",
+            poster: "../../assets/delta-review-poster.webp",
+            src: "https://images.zed.dev/blog/delta-public-beta/review-quick.mp4",
+            caption: "Zed 공식 리뷰 시연 · 2026-09-16 · 원문 영상, 영어 UI"
           },
           sources: [
             {
@@ -165,110 +335,6 @@ window.MEETING_DATA = {
               publisher: "Zed Industries",
               date: "2026-09-16",
               url: "https://zed.dev/blog/delta-public-beta"
-            }
-          ]
-        },
-        {
-          id: "two-policies",
-          eyebrow: "OPENAI / PYTEST / LINUX",
-          title: "사람 리뷰: 선택 / 필수",
-          facts: [
-            "OpenAI의 내부 실험은 사람이 직접 작성한 코드 0줄로 제품을 만들었다.",
-            "pytest는 사람이 이해하지 못한 순수 에이전트 PR을 받지 않는다.",
-            "Linux의 Signed-off-by는 사람만 추가할 수 있다."
-          ],
-          caveat: "내부 제품 실험과 공개 오픈소스 정책의 대비",
-          visual: {
-            type: "policy-split",
-            left: {
-              label: "OPENAI",
-              value: "0",
-              unit: "handwritten lines",
-              lines: ["agent self-review", "human review may be omitted"]
-            },
-            right: {
-              label: "PYTEST / LINUX",
-              value: "HUMAN",
-              unit: "must understand & own",
-              lines: ["purely agentic PRs closed", "Signed-off-by: humans only"]
-            }
-          },
-          sources: [
-            {
-              label: "Harness engineering: leveraging Codex in an agent-first world",
-              publisher: "OpenAI",
-              date: "2026-02-11",
-              url: "https://openai.com/index/harness-engineering/"
-            },
-            {
-              label: "AI/LLM-Assisted Contributions Policy",
-              publisher: "pytest",
-              date: "2026",
-              url: "https://github.com/pytest-dev/pytest/blob/main/CONTRIBUTING.rst"
-            },
-            {
-              label: "AI Coding Assistants",
-              publisher: "Linux kernel",
-              date: "2026",
-              url: "https://www.kernel.org/dochtml/latest/process/coding-assistants.html"
-            }
-          ]
-        },
-        {
-          id: "different-reviews",
-          eyebrow: "278,790 REVIEW CONVERSATIONS",
-          title: "AI는 수정했고, 사람은 물었다",
-          facts: [
-            "AI 리뷰의 95% 이상은 코드 개선과 결함 탐지에 집중했다.",
-            "사람은 구현 의도, 테스트, 저장소 관례를 더 자주 다뤘다.",
-            "AI가 시작한 리뷰의 85% 이상은 첫 코멘트 뒤 대화가 없었다."
-          ],
-          caveat: "300개 공개 프로젝트 · 관찰 연구 · arXiv preprint",
-          visual: {
-            type: "review-roles",
-            left: {
-              label: "AI REVIEW",
-              value: "16.6%",
-              note: "suggestions adopted",
-              words: ["DEFECT", "IMPROVEMENT", "PATCH"]
-            },
-            right: {
-              label: "HUMAN REVIEW",
-              value: "56.5%",
-              note: "suggestions adopted",
-              words: ["WHY?", "TEST?", "CONTEXT?"]
-            }
-          },
-          sources: [
-            {
-              label: "Human-AI Synergy in Agentic Code Review",
-              publisher: "Zhong et al.",
-              date: "2026-10-30",
-              url: "https://arxiv.org/abs/2603.15911"
-            }
-          ]
-        },
-        {
-          id: "rewrite",
-          eyebrow: "ONE ENGINEER · 5–6 AGENTS",
-          title: "4,000줄을 수백 줄로",
-          facts: [
-            "Ben Stolovitz는 평소 5~6개의 코딩 에이전트를 병렬로 사용한다.",
-            "에이전트는 코드, 테스트, PR 작성과 리뷰까지 수행한다.",
-            "그가 올해 가장 성공적이었다고 꼽은 작업은 AI 코드 약 4,000줄을 사람이 쓴 수백 줄로 교체한 일이었다."
-          ],
-          caveat: "Salesforce AI Research 엔지니어의 개인 작업 기록",
-          visual: {
-            type: "rewrite",
-            before: { label: "VIBE CODE", value: "~4,000", unit: "lines" },
-            after: { label: "HANDWRITTEN", value: "100s", unit: "lines" }
-          },
-          sources: [
-            {
-              label: "How I use AI (Oct 2026)",
-              publisher: "Ben Stolovitz",
-              date: "2026-10",
-              url: "https://ben.stolovitz.com/posts/how-use-ai-oct-2026/"
             }
           ]
         }

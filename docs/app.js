@@ -5,6 +5,11 @@
   const app = document.querySelector("#app");
   const nav = document.querySelector("#case-nav");
 
+  if (week.presentation === "workflows") {
+    window.renderWorkflowWeek({ week, app, nav });
+    return;
+  }
+
   const escapeHtml = (value) =>
     String(value)
       .replaceAll("&", "&amp;")
