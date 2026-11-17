@@ -140,13 +140,12 @@ window.MEETING_DATA = {
       topic: "AI 시대의 개발 방법론",
       subtopic: "코드 리뷰",
       title: "AI 코딩과 코드 리뷰",
-      intro: "일을 맡기고, 결과를 이해하고, 동료에게 넘기는 방식. 개발자와 팀의 실제 작업 과정을 살펴봅니다.",
       presentation: "workflows",
       cases: [
         {
           id: "parallel-agents",
-          eyebrow: "BEN STOLOVITZ · 2026-10",
-          title: "여러 에이전트가 만들고, 사람은 무엇을 보나",
+          eyebrow: "Ben Stolovitz · 2026-10",
+          title: "Ben Stolovitz의 병렬 작업",
           shortTitle: "병렬 작업과 검토",
           kind: "parallel",
           context: "Ben Stolovitz는 기능 구현과 버그 재현을 에이전트에 나눠 맡긴다. 각 작업은 별도 Git worktree에서 진행하고, 사람이 draft PR을 검토하고 직접 테스트한다.",
@@ -203,8 +202,8 @@ window.MEETING_DATA = {
         },
         {
           id: "review-queue",
-          eyebrow: "BUSTIKILLER · 2026-09-25",
-          title: "작업은 병렬로, 검토는 한 사람에게",
+          eyebrow: "bustikiller · 2026-09-25",
+          title: "병렬 구현 뒤 밀린 코드 리뷰",
           shortTitle: "검토가 밀린 경험",
           kind: "queue",
           context: "다른 개발자는 Jira 티켓을 CLI로 연결하고, 여러 worktree에서 에이전트를 병렬 실행했다. 익숙하지 않은 코드베이스에서 구현 속도와 자신의 이해 속도가 벌어졌다고 기록했다.",
@@ -248,8 +247,8 @@ window.MEETING_DATA = {
         },
         {
           id: "review-rules",
-          eyebrow: "OPENAI · 2026-07-20",
-          title: "diff에 없는 호환성 맥락을 규칙으로 남긴다",
+          eyebrow: "OpenAI · 2026-07-20",
+          title: "Codex 팀의 호환성 리뷰 규칙",
           shortTitle: "팀의 리뷰 규칙",
           kind: "rules",
           context: "Codex app-server의 알림은 experimental이어도 Codex Cloud가 사용한다. 팀은 이 연동 경계를 보호하기 위해 AGENTS.md에 리뷰 규칙을 추가했다.",
@@ -291,8 +290,8 @@ window.MEETING_DATA = {
         },
         {
           id: "delta-review",
-          eyebrow: "ZED · 2026-09-16",
-          title: "diff와 함께 작성 당시의 맥락을 넘긴다",
+          eyebrow: "Zed · 2026-09-16",
+          title: "Delta의 대화 기반 코드 리뷰",
           shortTitle: "동료에게 맥락 넘기기",
           kind: "delta",
           context: "Zed는 Delta 자체 저장소의 PR을 끄고, 에이전트 대화가 있는 thread 안에서 구현·리뷰·반영을 진행한다고 발표했다. Zed 편집기 저장소 전체가 PR을 없앴다는 뜻은 아니다.",

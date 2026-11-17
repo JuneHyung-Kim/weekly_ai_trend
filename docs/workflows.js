@@ -46,27 +46,24 @@
     return `<figure class="workflow-artifact video-artifact"><video controls playsinline preload="none" poster="${e(a.poster)}" aria-label="Zed 공식 Delta 리뷰 시연" aria-describedby="${e(item.id)}-video-caption"><source src="${e(a.src)}" type="video/mp4"></video><figcaption id="${e(item.id)}-video-caption">${e(a.caption)} · <a href="${e(a.src)}" target="_blank" rel="noreferrer">원본 영상 ↗</a></figcaption></figure>`;
   };
 
-  window.renderWorkflowWeek = ({ week, app, nav }) => {
+  window.renderWorkflowWeek = ({ week, app }) => {
     document.body.classList.add("workflow-page");
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
     reducedMotion.addEventListener("change", () => {
       if (reducedMotion.matches) app.getAnimations({ subtree: true }).forEach(animation => animation.cancel());
     });
     const sources = (item) => `<div class="workflow-sources">${item.sources.map(s => `<a href="${e(s.url)}" target="_blank" rel="noreferrer"><span>${e(s.publisher)} · ${e(s.date)}</span>${e(s.label)} ↗</a>`).join("")}</div>`;
-    nav.innerHTML = week.cases.map((item, index) => `<a href="#${e(item.id)}" aria-label="${e(item.shortTitle)}">${number(index)}</a>`).join("");
     app.innerHTML = `
       <section class="workflow-intro workflow-shell" id="top">
-        <p class="eyebrow">${e(week.ordinal)} / ${e(week.topic)} / ${e(week.subtopic)}</p>
+        <p class="eyebrow">${e(week.ordinal)} · ${e(week.topic)}</p>
         <h1>${e(week.title)}</h1>
-        <p class="workflow-lead">${e(week.intro)}</p>
-        <div class="case-directory">${week.cases.map((item, index) => `<a href="#${e(item.id)}"><span>${number(index)}</span><strong>${e(item.shortTitle)}</strong><small>${e(item.eyebrow)}</small><b aria-hidden="true">↗</b></a>`).join("")}</div>
       </section>
       ${week.cases.map((item, index) => `
         <section class="workflow-case workflow-shell" id="${e(item.id)}" data-kind="${e(item.kind)}">
-          <header class="workflow-heading"><span class="case-number">${number(index)}</span><div><p class="eyebrow">${e(item.eyebrow)}</p><h2>${e(item.title)}</h2><p class="workflow-context">${e(item.context)}</p></div></header>
+          <header class="workflow-heading"><p class="eyebrow">${number(index)} · ${e(item.eyebrow)}</p><h2>${e(item.title)}</h2><p class="workflow-context">${e(item.context)}</p></header>
           <div class="workflow-workspace">
-            <div class="step-rail" role="tablist" aria-label="${e(item.shortTitle)} 작업 과정">${item.steps.map((step, i) => `<button type="button" role="tab" id="${e(item.id)}-tab-${i}" aria-selected="${i === 0}" aria-controls="${e(item.id)}-panel" tabindex="${i === 0 ? 0 : -1}" data-step="${i}"><span>${number(i)}</span><strong>${e(step.label)}</strong></button>`).join("")}<p>단계를 선택해 작업 과정을 봅니다.</p></div>
-            <div class="workflow-stage">${diagram(item)}<div class="step-explanation" role="tabpanel" id="${e(item.id)}-panel" aria-labelledby="${e(item.id)}-tab-0" tabindex="0"><div class="step-content"></div></div><div class="step-controls"><button type="button" data-prev aria-label="이전 단계">← 이전</button><span class="step-position"></span><button type="button" data-next aria-label="다음 단계">다음 →</button></div></div>
+            <div class="step-rail" role="tablist" aria-label="${e(item.shortTitle)} 작업 과정">${item.steps.map((step, i) => `<button type="button" role="tab" id="${e(item.id)}-tab-${i}" aria-selected="${i === 0}" aria-controls="${e(item.id)}-panel" tabindex="${i === 0 ? 0 : -1}" data-step="${i}"><span>${number(i)}</span><strong>${e(step.label)}</strong></button>`).join("")}</div>
+            <div class="workflow-stage">${diagram(item)}<div class="step-explanation" role="tabpanel" id="${e(item.id)}-panel" aria-labelledby="${e(item.id)}-tab-0" tabindex="0"><div class="step-content"></div></div></div>
           </div>
           <div class="case-evidence">${artifact(item)}<div class="case-reading"><p class="evidence-label">${e(item.boundary)}</p>${item.detail ? `<div class="evidence-note"><h3>${e(item.detailTitle)}</h3><p>${e(item.detail)}</p></div>` : ""}<details class="full-process"><summary>전체 과정 한 번에 보기</summary><ol>${item.steps.map(step => `<li><strong>${e(step.title)}</strong><p>${e(step.text)}</p></li>`).join("")}</ol></details>${sources(item)}</div></div>
         </section>`).join("")}
@@ -89,11 +86,8 @@
         const step = item.steps[current];
         const content = section.querySelector(".step-content");
         content.innerHTML = `<span class="actor-label">${e(step.actor)}</span><h3>${e(step.title)}</h3><p>${e(step.text)}</p>`;
-        if (content.animate && !reducedMotion.matches) content.animate([{ opacity: 0, transform: "translateY(6px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 220 });
+        if (content.animate && !reducedMotion.matches) content.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 150 });
         section.querySelector('[role="tabpanel"]').setAttribute("aria-labelledby", tabs[current].id);
-        section.querySelector(".step-position").textContent = `${number(current)} / ${number(item.steps.length - 1)}`;
-        section.querySelector("[data-prev]").disabled = current === 0;
-        section.querySelector("[data-next]").disabled = current === item.steps.length - 1;
         if (focus) tabs[current].focus();
       };
       tabs.forEach((tab, index) => {
@@ -104,8 +98,6 @@
           select(event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (current + (["ArrowRight", "ArrowDown"].includes(event.key) ? 1 : -1) + tabs.length) % tabs.length, true);
         });
       });
-      section.querySelector("[data-prev]").addEventListener("click", () => select(current - 1));
-      section.querySelector("[data-next]").addEventListener("click", () => select(current + 1));
       select(0);
     });
 
@@ -126,13 +118,6 @@
       localStorage.setItem("weekly-ai-theme", next);
     });
     document.querySelector("#updated-at").textContent = `${week.ordinal} · ${week.dateLabel} · 원문 확인 2026-11-17`;
-    const links = [...nav.querySelectorAll("a")];
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        links.forEach(link => link.classList.toggle("active", link.hash === `#${entry.target.id}`));
-      });
-    }, { rootMargin: "-15% 0px -65% 0px", threshold: 0 });
-    document.querySelectorAll(".workflow-case").forEach(section => observer.observe(section));
+
   };
 })();

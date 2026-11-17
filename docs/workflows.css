@@ -1,79 +1,79 @@
-html:has(.workflow-page) { scroll-snap-type: none; scroll-padding-top: 88px; }
+html:has(.workflow-page) { scroll-snap-type: none; }
 .workflow-page { --accent: var(--lime); }
+.workflow-page {
+  font-family: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.workflow-page button { font-family: inherit; }
+.workflow-page p { word-break: keep-all; overflow-wrap: anywhere; text-wrap: pretty; }
+.workflow-page h1, .workflow-page h2, .workflow-page h3 { word-break: keep-all; overflow-wrap: break-word; text-wrap: balance; }
+.workflow-page .eyebrow { font-family: inherit; font-size: 13px; font-weight: 500; line-height: 1.6; letter-spacing: 0; color: var(--muted); }
+.workflow-page .topbar { position: static; display: flex; justify-content: space-between; height: 64px; max-width: 1160px; margin: auto; padding: 0 clamp(20px, 4vw, 48px); background: none; backdrop-filter: none; border-bottom: 1px solid var(--line); }
+.workflow-page .brand { font-family: inherit; font-size: 14px; font-weight: 500; letter-spacing: 0; }
+.workflow-page footer { max-width: 1160px; margin: auto; padding: 24px clamp(20px, 4vw, 48px); font-family: inherit; }
+
 :root[data-theme="light"] .workflow-page { --lime: #4b6900; --red: #a42c1e; --blue: #254fc2; }
-.workflow-shell { max-width: 1440px; margin: auto; padding: 64px clamp(22px, 5vw, 80px); }
-.workflow-intro { padding-top: 145px; padding-bottom: 56px; }
-.workflow-intro h1 { margin: 0; font-size: clamp(38px, 5.8vw, 80px); line-height: 1.12; letter-spacing: -.055em; }
-.workflow-lead { max-width: 730px; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.7; color: var(--muted); margin: 22px 0 38px; word-break: keep-all; }
-.case-directory { border-top: 1px solid var(--line); }
-.case-directory a { display: grid; grid-template-columns: 42px 1fr 260px 20px; gap: 14px; padding: 18px 8px; align-items: center; border-bottom: 1px solid var(--line); text-decoration: none; transition: padding .2s, background .2s; }
-.case-directory a:hover { background: var(--surface); padding-left: 16px; }
-.case-directory span, .case-directory small { color: var(--muted); font: 11px/1.5 ui-monospace, monospace; }
-.case-directory b { color: var(--lime); }
-.case-directory strong { font-size: 17px; font-weight: 600; }
-.workflow-case { border-top: 1px solid var(--line); padding-top: 70px; padding-bottom: 80px; scroll-margin-top: 10px; }
-.workflow-heading { display: grid; grid-template-columns: 76px 1fr; gap: 22px; margin-bottom: 34px; }
-.case-number { font: 400 55px/1 ui-monospace, monospace; color: var(--line); letter-spacing: -.08em; }
-.workflow-heading .eyebrow { margin-bottom: 14px; }
-.workflow-heading h2 { font-size: clamp(25px, 3.2vw, 43px); letter-spacing: -.04em; line-height: 1.3; margin: 0; word-break: keep-all; }
-.workflow-context { margin: 16px 0 0; max-width: 880px; font-size: 17px; line-height: 1.8; color: var(--muted); word-break: keep-all; }
-.workflow-workspace { display: grid; grid-template-columns: 200px minmax(0, 1fr); border: 1px solid var(--line); background: var(--surface); border-radius: 16px; overflow: hidden; }
-.step-rail { padding: 22px 12px; border-right: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 30%, var(--surface)); }
-.step-rail button { width: 100%; display: flex; gap: 13px; padding: 20px 14px; border: 1px solid transparent; border-radius: 8px; text-align: left; color: var(--muted); background: transparent; cursor: pointer; margin-bottom: 6px; font: inherit; align-items: center; }
-.step-rail button span { font: 11px/1 ui-monospace, monospace; opacity: .7; }
+.workflow-shell { max-width: 1160px; margin: auto; padding: 44px clamp(20px, 4vw, 48px); }
+.workflow-intro { padding-top: 36px; padding-bottom: 28px; }
+.workflow-intro h1 { margin: 8px 0 0; font-size: clamp(28px, 3.2vw, 36px); font-weight: 650; line-height: 1.4; letter-spacing: -.025em; }
+.workflow-case { border-top: 1px solid var(--line); padding-top: 36px; padding-bottom: 48px; scroll-margin-top: 10px; }
+.workflow-heading { margin-bottom: 24px; }
+.workflow-heading .eyebrow { margin-bottom: 8px; }
+.workflow-heading h2 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 650; letter-spacing: -.02em; line-height: 1.5; margin: 0; word-break: keep-all; }
+.workflow-context { margin: 12px 0 0; max-width: 850px; font-size: 16px; line-height: 1.8; color: var(--muted); word-break: keep-all; }
+.workflow-workspace { display: grid; grid-template-columns: 160px minmax(0, 1fr); border: 1px solid var(--line); background: var(--surface); border-radius: 10px; overflow: hidden; }
+.step-rail { padding: 16px 10px; border-right: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 30%, var(--surface)); }
+.step-rail button { width: 100%; display: flex; gap: 13px; padding: 16px 10px; border: 1px solid transparent; border-radius: 8px; text-align: left; color: var(--muted); background: transparent; cursor: pointer; margin-bottom: 6px; font: inherit; align-items: center; }
+.step-rail button span { font-family: inherit; font-size: 13px; line-height: 1.6; opacity: .7; }
 .step-rail button strong { font-size: 15px; font-weight: 600; }
 .step-rail button[aria-selected="true"] { color: var(--text); border-color: var(--line); background: var(--surface-2); box-shadow: inset 3px 0 var(--accent); }
-.step-rail p { font-size: 12px; line-height: 1.7; margin: 20px 14px; color: var(--muted); }
-.workflow-stage { min-width: 0; padding: clamp(18px, 3vw, 38px); }
-.workflow-diagram { position: relative; min-height: 340px; }
-.diagram-label { font-size: 11px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+.workflow-stage { min-width: 0; padding: clamp(20px, 2.5vw, 30px); }
+.workflow-diagram { position: relative; min-height: 0; }
+.diagram-label { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
 [data-node] { transition: border-color .25s, background .25s, opacity .25s; }
 .workflow-diagram [data-node] { border: 1px solid var(--line); border-radius: 9px; background: var(--bg); }
 .workflow-diagram [data-node].is-active { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, var(--bg)); }
 .workflow-diagram [data-node].is-past { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); }
 .owner-node { width: fit-content; margin: 0 auto 16px; padding: 10px 28px; font-weight: 650; text-align: center; }
-.owner-node span { display: block; font-size: 11px; font-weight: 400; color: var(--muted); margin-top: 5px; }
+.owner-node span { display: block; font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 5px; }
 .agent-lanes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; overflow: hidden; }
 .agent-lanes > div { padding: 20px 16px; border-right: 1px solid var(--line); }
 .agent-lanes > div:last-child { border: 0; }
-.agent-lanes span { font: 10px/1.5 ui-monospace, monospace; color: var(--accent); }
+.agent-lanes span { font-family: inherit; font-size: 13px; line-height: 1.6; color: var(--accent); }
 .agent-lanes strong, .agent-lanes small { display: block; margin-top: 12px; }
 .agent-lanes strong { font-size: 16px; }
-.agent-lanes small { font-size: 11px; line-height: 1.6; color: var(--muted); }
+.agent-lanes small { font-size: 13px; line-height: 1.6; color: var(--muted); }
 .review-node { margin: 16px auto 12px; padding: 15px; text-align: center; width: 85%; }
-.review-node span { font-size: 11px; color: var(--muted); display: block; margin-bottom: 8px; }
-.review-node strong { font-size: 17px; }
-.rule-node { width: 85%; margin: 0 auto; text-align: center; padding: 12px; font-size: 12px; }
-.step-explanation { min-height: 162px; border-top: 1px solid var(--line); padding-top: 24px; margin-top: 28px; }
-.actor-label { font: 11px/1.5 ui-monospace, monospace; color: var(--accent); }
-.step-explanation h3 { font-size: 21px; margin: 9px 0; letter-spacing: -.025em; }
+.review-node span { font-size: 13px; color: var(--muted); display: block; margin-bottom: 8px; }
+.review-node strong { font-size: 16px; }
+.rule-node { width: 85%; margin: 0 auto; text-align: center; padding: 12px; font-size: 13px; }
+.step-explanation { min-height: 140px; border-top: 1px solid var(--line); padding-top: 24px; margin-top: 28px; }
+.actor-label { font-family: inherit; font-size: 13px; line-height: 1.6; color: var(--accent); }
+.step-explanation h3 { font-size: 20px; margin: 8px 0; font-weight: 600; line-height: 1.5; letter-spacing: -.02em; }
 .step-explanation p { margin: 0; font-size: 16px; line-height: 1.85; word-break: keep-all; }
-.step-controls { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; gap: 15px; }
-.step-controls button { background: transparent; border: 1px solid var(--line); border-radius: 7px; padding: 10px 16px; color: var(--text); cursor: pointer; font: inherit; font-size: 13px; }
-.step-controls button:hover:not(:disabled) { border-color: var(--accent); }
-.step-controls button:disabled { opacity: .3; cursor: default; }
-.step-position { font: 11px/1 ui-monospace, monospace; color: var(--muted); }
 .case-evidence { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; margin-top: 28px; }
 .case-evidence:has(.workflow-artifact) { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 .workflow-artifact { margin: 0; min-width: 0; }
 .artifact-zoom { position: relative; display: block; width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0; overflow: hidden; cursor: zoom-in; }
 .artifact-zoom img { display: block; width: 100%; max-height: 340px; object-fit: contain; background: #080808; }
-.artifact-zoom > span { display: block; padding: 12px; font-size: 12px; color: var(--text); background: var(--surface); border-top: 1px solid var(--line); }
-.workflow-artifact figcaption { margin-top: 10px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.artifact-zoom > span { display: block; padding: 12px; font-size: 13px; color: var(--text); background: var(--surface); border-top: 1px solid var(--line); }
+.workflow-artifact figcaption { margin-top: 10px; color: var(--muted); font-size: 13px; line-height: 1.7; }
 .workflow-artifact a { text-underline-offset: 3px; }
 .workflow-artifact video { width: 100%; display: block; background: #080808; border: 1px solid var(--line); border-radius: 10px; }
 .case-reading { min-width: 0; }
-.evidence-label { font-size: 12px; line-height: 1.8; color: var(--muted); margin: 0 0 18px; padding-left: 12px; border-left: 2px solid var(--line); }
-.evidence-note h3 { margin: 0 0 10px; font-size: 17px; }
-.evidence-note p { margin: 0 0 20px; font-size: 14px; line-height: 1.9; color: var(--muted); }
+.evidence-label { font-size: 13px; line-height: 1.8; color: var(--muted); margin: 0 0 18px; padding-left: 12px; border-left: 2px solid var(--line); }
+.evidence-note h3 { margin: 0 0 10px; font-size: 20px; line-height: 1.5; }
+.evidence-note p { margin: 0 0 20px; font-size: 16px; line-height: 1.9; color: var(--muted); }
 .full-process { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .full-process summary { cursor: pointer; font-size: 13px; padding: 16px 0; }
-.full-process ol { padding: 0 0 0 24px; font-size: 14px; }
+.full-process ol { padding: 0 0 0 24px; font-size: 16px; }
 .full-process li { padding: 6px 0 10px 6px; }
 .full-process p { line-height: 1.8; color: var(--muted); margin: 6px 0; }
 .workflow-sources { display: flex; flex-wrap: wrap; gap: 14px 30px; padding-top: 18px; }
-.workflow-sources a { font-size: 12px; text-decoration: none; line-height: 1.7; }
-.workflow-sources a span { display: block; font-size: 10px; color: var(--muted); }
+.workflow-sources a { font-size: 13px; text-decoration: none; line-height: 1.7; }
+.workflow-sources a span { display: block; font-size: 13px; color: var(--muted); }
 .workflow-sources a:hover { text-decoration: underline; }
 .workflow-page [data-kind="queue"] { --accent: var(--red); }
 .workflow-page [data-kind="rules"] { --accent: var(--blue); }
@@ -81,87 +81,76 @@ html:has(.workflow-page) { scroll-snap-type: none; scroll-padding-top: 88px; }
 .queue-input { display: flex; justify-content: space-between; gap: 15px; padding: 14px 18px; font-size: 13px; }
 .queue-input span { color: var(--muted); }
 .queue-stack { display: flex; gap: 12px; padding: 12px; margin: 12px 0; }
-.queue-stack > div { flex: 1; border: 1px solid var(--line); padding: 12px 8px; font-size: 12px; text-align: center; border-radius: 4px; }
+.queue-stack > div { flex: 1; border: 1px solid var(--line); padding: 12px 8px; font-size: 13px; text-align: center; border-radius: 4px; }
 .queue-review { text-align: center; padding: 22px 12px; margin-bottom: 12px; }
-.queue-review span, .queue-review small { display: block; color: var(--muted); font-size: 11px; line-height: 1.7; }
-.queue-review strong { display: block; font-size: clamp(19px, 2.5vw, 30px); letter-spacing: -.03em; margin: 12px 0; }
-.queue-feedback { padding: 16px 18px; font-size: 14px; line-height: 1.7; }
-.queue-feedback small { display: block; font-size: 10px; color: var(--muted); margin-top: 8px; }
-.queue-reset { padding: 14px 18px; font-size: 12px; margin-top: 12px; }
+.queue-review span, .queue-review small { display: block; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.queue-review strong { display: block; font-size: clamp(20px, 2.2vw, 24px); letter-spacing: -.03em; margin: 12px 0; }
+.queue-feedback { padding: 16px 18px; font-size: 16px; line-height: 1.75; }
+.queue-feedback small { display: block; font-size: 13px; color: var(--muted); margin-top: 8px; }
+.queue-reset { padding: 14px 18px; font-size: 13px; margin-top: 12px; }
 .code-window { overflow: hidden; }
-.code-window > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 16px; font: 12px/1.5 ui-monospace, monospace; border-bottom: 1px solid var(--line); }
-.code-window > div span { color: var(--muted); font-size: 10px; }
-.code-window pre { margin: 0; padding: 18px 0; overflow-x: auto; font: 12px/2 ui-monospace, SFMono-Regular, monospace; }
+.code-window > div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 12px 16px; font-family: inherit; font-size: 13px; line-height: 1.6; border-bottom: 1px solid var(--line); }
+.code-window > div span { color: var(--muted); font-size: 13px; }
+.code-window pre { margin: 0; padding: 16px 0; overflow-x: auto; font: 13px/1.8 ui-monospace, SFMono-Regular, monospace; }
 .code-window code span { display: block; padding: 0 16px; width: max-content; min-width: 100%; }
 .diff-remove { color: var(--red); background: color-mix(in srgb, var(--red) 7%, transparent); }
 .diff-add { color: var(--lime); background: color-mix(in srgb, var(--lime) 7%, transparent); }
-.contract-chain { display: flex; justify-content: center; align-items: center; gap: 16px; margin: 20px 0; font: 12px/1.7 ui-monospace, monospace; }
-.contract-chain i { font-style: normal; color: var(--muted); font-size: 11px; }
+.contract-chain { display: flex; justify-content: center; align-items: center; gap: 16px; margin: 20px 0; font-family: inherit; font-size: 13px; line-height: 1.6; }
+.contract-chain i { font-style: normal; color: var(--muted); font-size: 13px; }
 .repository-rule, .finding-node { padding: 18px; margin-top: 12px; }
-.repository-rule span, .finding-node span { color: var(--muted); font-size: 11px; line-height: 1.7; }
+.repository-rule span, .finding-node span { color: var(--muted); font-size: 13px; line-height: 1.7; }
 .repository-rule strong { display: block; font: 16px/1.7 ui-monospace, monospace; margin-top: 10px; }
-.repository-rule p, .finding-node p { font-size: 14px; line-height: 1.8; margin: 8px 0 0; }
+.repository-rule p, .finding-node p { font-size: 16px; line-height: 1.75; margin: 8px 0 0; }
 .delta-thread, .delta-subthread { padding: 18px 22px; width: 85%; }
-.delta-thread span, .delta-subthread span { display: block; color: var(--muted); font: 10px/1.5 ui-monospace, monospace; margin-bottom: 10px; }
-.delta-thread strong, .delta-subthread strong { font-size: 19px; }
-.delta-thread p, .delta-subthread p { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
+.delta-thread span, .delta-subthread span { display: block; color: var(--muted); font-family: inherit; font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+.delta-thread strong, .delta-subthread strong { font-size: 16px; }
+.delta-thread p, .delta-subthread p { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
 .delta-subthread { margin-left: auto; }
-.thread-branch { padding: 15px 0 15px 18%; color: var(--muted); font-size: 11px; }
-.thread-merge { width: 85%; padding: 13px 18px; font-size: 12px; margin: 14px 0; }
+.thread-branch { padding: 15px 0 15px 18%; color: var(--muted); font-size: 13px; }
+.thread-merge { width: 85%; padding: 13px 18px; font-size: 13px; margin: 14px 0; }
 .delta-land { padding: 15px 18px; font-size: 13px; }
 .image-dialog { max-width: min(94vw, 1300px); max-height: 94svh; padding: 52px 14px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--text); }
 .image-dialog::backdrop { background: #000b; backdrop-filter: blur(5px); }
 .image-dialog img { display: block; width: 100%; height: auto; }
 .dialog-close { position: absolute; right: 16px; top: 10px; color: var(--text); border: 1px solid var(--line); background: var(--surface); padding: 8px 12px; border-radius: 6px; cursor: pointer; }
 .workflow-page button:focus-visible, .workflow-page a:focus-visible, .workflow-page summary:focus-visible, .workflow-page [tabindex="0"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-@media (max-width: 900px) {
-  .workflow-page .topbar { backdrop-filter: none; background: var(--bg); }
-  .workflow-page #case-nav { display: flex; position: fixed; bottom: 18px; top: auto; left: 50%; transform: translateX(-50%); padding: 9px 12px; border: 1px solid var(--line); border-radius: 30px; background: var(--bg); box-shadow: var(--shadow); }
-  .workflow-page footer { padding-bottom: 100px; }
-}
+
 @media (max-width: 850px) {
-  .workflow-heading { grid-template-columns: 40px 1fr; gap: 12px; }
-  .case-number { font-size: 33px; }
+
   .workflow-workspace { grid-template-columns: 150px minmax(0, 1fr); }
   .step-rail button { padding: 18px 8px; gap: 8px; }
-  .case-directory a { grid-template-columns: 30px 1fr 20px; }
-  .case-directory small { display: none; }
   .case-evidence:has(.workflow-artifact) { grid-template-columns: 1fr; }
-  .workflow-context { font-size: 15px; }
+  .workflow-context { font-size: 16px; }
 }
 @media (max-width: 600px) {
-  .workflow-page .topbar { padding: 0 16px; grid-template-columns: 1fr auto; backdrop-filter: none; background: var(--bg); }
-  .workflow-page .brand { font-size: 10px; letter-spacing: .04em; }
-  .workflow-page .topbar-actions { grid-column: 2; grid-row: 1; }
-  .workflow-page .back-link { display: none; }
+  .workflow-page .topbar { padding: 0 18px; }
+  .workflow-page .brand { font-size: 14px; letter-spacing: 0; }
   .workflow-shell { padding-left: 18px; padding-right: 18px; }
-  .workflow-intro { padding-top: 112px; }
-  .workflow-heading { grid-template-columns: 1fr; gap: 14px; }
-  .case-number { font-size: 25px; }
+  .workflow-intro { padding-top: 28px; }
+
   .workflow-workspace { display: block; }
   .step-rail { display: flex; padding: 10px; gap: 4px; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); }
   .step-rail button { flex: 1; width: auto; white-space: nowrap; padding: 12px 8px; margin: 0; display: block; text-align: center; }
-  .step-rail button span { display: block; margin-bottom: 8px; }
-  .step-rail button strong { font-size: 12px; }
+  .step-rail button span { display: block; margin-bottom: 6px; font-size: 12px; }
+  .step-rail button strong { font-size: 13px; }
   .step-rail button[aria-selected="true"] { box-shadow: inset 0 -2px var(--accent); }
-  .step-rail p { display: none; }
   .workflow-stage { padding: 18px 14px; }
   .workflow-diagram { min-height: 0; }
   .agent-lanes > div { padding: 14px 8px; }
   .agent-lanes strong { font-size: 13px; }
-  .agent-lanes small { font-size: 10px; }
-  .agent-lanes span { font-size: 8px; }
+  .agent-lanes small { display: none; }
+  .agent-lanes span { font-size: 11px; }
   .rule-node, .review-node { width: 100%; }
-  .step-explanation { min-height: 225px; }
-  .step-explanation h3 { font-size: 19px; }
-  .step-explanation p { font-size: 15px; }
+  .step-explanation { min-height: 230px; }
+  .step-explanation h3 { font-size: 20px; }
+  .step-explanation p { font-size: 16px; }
   .queue-input { display: block; }
   .queue-input strong { display: block; margin-top: 8px; }
   .queue-stack { gap: 6px; padding: 8px; }
-  .queue-stack > div { font-size: 10px; }
-  .contract-chain { gap: 8px; font-size: 10px; }
-  .contract-chain i { font-size: 10px; }
-  .workflow-page footer { padding-bottom: 100px; }
+  .queue-stack > div { font-size: 13px; }
+  .contract-chain { gap: 8px; font-size: 13px; }
+  .contract-chain i { font-size: 13px; }
+
 }
 @media (prefers-reduced-motion: reduce) {
   html:has(.workflow-page) { scroll-behavior: auto; }
