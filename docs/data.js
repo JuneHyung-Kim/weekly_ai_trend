@@ -1,5 +1,5 @@
 window.MEETING_DATA = {
-  currentWeek: "ai-code-review-01",
+  currentWeek: "workflow-automation-01",
   topics: [
     {
       id: "ai-development-methodology",
@@ -35,13 +35,102 @@ window.MEETING_DATA = {
     {
       id: "agent-adoption",
       number: "04",
-      title: "최신 AI Agent 활용 동향",
-      shortTitle: "AI Agent 활용",
-      description: "개인 도구부터 조직의 업무 흐름까지, 에이전트가 실제로 쓰이는 장면을 봅니다.",
-      subtopics: []
+      title: "AI Agent 및 활용",
+      shortTitle: "AI Agent 및 활용",
+      description: "AI Agent의 활용 사례와 업무 자동화를 다룹니다.",
+      subtopics: [
+        {
+          id: "workflow-automation",
+          title: "업무 자동화",
+          description: "실제 업무에 필요한 도구를 만들고 반복 작업을 자동화한 사례를 봅니다.",
+          weeks: ["workflow-automation-01"]
+        }
+      ]
     }
   ],
   weeks: [
+    {
+      id: "workflow-automation-01",
+      ordinal: "W02",
+      topicId: "agent-adoption",
+      subtopicId: "workflow-automation",
+      dateLabel: "2026 · 11",
+      topic: "AI Agent 및 활용",
+      subtopic: "업무 자동화",
+      title: "업무 자동화",
+      intro: "광고 시안 제작과 피드백 분류를 자동화한 두 팀의 사례.",
+      cases: [
+        {
+          id: "ad-creative",
+          eyebrow: "ANTHROPIC · GROWTH MARKETING",
+          title: "광고 시안 제작 자동화",
+          facts: [
+            "마케터가 Claude Code로 Figma 플러그인을 만들어 문안별 광고 시안을 한 번에 생성한다.",
+            "Google Ads 문안은 브랜드·제품·광고 규칙을 담은 Skills를 참고해 만들고 CSV로 내보낸다.",
+            "광고 문안은 사람이 검토한 뒤 업로드한다."
+          ],
+          caveat: "2026-01-26 · Anthropic의 자사 업무 소개 · Figma 도구 제작과 AI 문안 생성 사례",
+          visual: {
+            type: "source-image",
+            src: "../../assets/anthropic-marketing-figma.png",
+            alt: "공식 사례의 Figma 광고 시안 생성 플러그인과 Google Sheets 문안 목록",
+            caption: "ANTHROPIC · FIGMA PLUGIN · 2026-01-26"
+          },
+          sources: [
+            {
+              label: "How Anthropic uses Claude in marketing",
+              publisher: "Anthropic",
+              date: "2026-01-26",
+              url: "https://claude.com/resources/articles/how-anthropic-uses-claude-marketing"
+            },
+            {
+              label: "업무 흐름 시연 영상 · 공식 글에서 연결",
+              publisher: "Anthropic",
+              date: "2026-01-26 · 소개 글 기준",
+              url: "https://www.youtube.com/watch?v=Jp83_JMK74o"
+            }
+          ]
+        },
+        {
+          id: "feedback-router",
+          eyebrow: "NOTION · PRODUCT OPERATIONS",
+          title: "Slack 피드백을 담당 팀의 할 일로",
+          facts: [
+            "Feedback Router가 Slack의 #all-feedback 채널을 모니터링한다.",
+            "피드백의 제품 영역을 분류하고 해당 팀의 할 일을 생성한다.",
+            "관련 Slack 채널에도 전달한다. 웹팀은 이 흐름을 자체 업무 분류 에이전트로 확장했다."
+          ],
+          caveat: "2026-02-24 · Notion의 자사 업무 소개 · 공개 화면은 Feedback Router의 동작 예시",
+          visual: {
+            type: "source-image",
+            src: "../../assets/notion-feedback-router.webp",
+            alt: "Notion이 공개한 Feedback Router의 Slack 응답 예시: 할 일 생성과 담당 팀 채널 전달",
+            caption: "NOTION · FEEDBACK ROUTER · 2026-02-24"
+          },
+          sources: [
+            {
+              label: "How Notion uses Custom Agents",
+              publisher: "Notion",
+              date: "2026-02-24",
+              url: "https://www.notion.com/blog/how-notion-uses-custom-agents"
+            },
+            {
+              label: "Feedback router · 공개 에이전트 템플릿",
+              publisher: "Notion Marketplace",
+              date: "2026-02-24 · 소개 글 기준",
+              url: "https://www.notion.so/marketplace/custom-agents/feedback-router"
+            }
+          ]
+        },
+        {
+          id: "project-intro",
+          type: "placeholder",
+          eyebrow: "03",
+          title: "프로젝트 소개",
+          summary: "별도 자료"
+        }
+      ]
+    },
     {
       id: "ai-code-review-01",
       ordinal: "W01",

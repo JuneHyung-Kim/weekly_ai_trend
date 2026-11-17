@@ -35,3 +35,15 @@ materials:
   - url: https://ben.stolovitz.com/posts/how-use-ai-oct-2026/
     status: used
     week: ai-code-review-01
+  - url: https://claude.com/resources/articles/how-anthropic-uses-claude-marketing
+    status: used
+    week: workflow-automation-01
+    note: 자사 마케팅 업무 사례. Figma 실제 화면과 원문 연결 영상.
+  - url: https://www.notion.com/blog/how-notion-uses-custom-agents
+    status: used
+    week: workflow-automation-01
+    note: 자사 Product Operations 사례. Feedback Router 공개 화면과 템플릿.
+  - url: https://www.anthropic.com/news/how-anthropic-teams-use-claude-code
+    status: reviewed
+    week: workflow-automation-01
+    note: 2025년 배경 자료. 법무 안내 프로토타입은 구체적인 화면이 부족해 제외.

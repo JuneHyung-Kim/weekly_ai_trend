@@ -121,6 +121,7 @@ a { color: inherit; }
 .source-image { width: 100%; height: 100%; margin: 0; display: flex; flex-direction: column; }
 .source-image img { width: 100%; flex: 1; min-height: 0; object-fit: cover; object-position: center; border-radius: 18px; }
 .source-image figcaption { padding-top: 16px; color: var(--muted); font: 700 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+body[data-week-id="workflow-automation-01"] .source-image img { object-fit: contain; }
 
 .policy-split, .review-roles { display: grid; grid-template-columns: 1fr 1fr; min-height: 390px; border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
 .policy-side, .review-role { padding: clamp(24px, 3vw, 46px); display: flex; flex-direction: column; justify-content: center; }

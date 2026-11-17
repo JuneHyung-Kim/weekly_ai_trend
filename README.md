@@ -27,3 +27,6 @@ python3 -m http.server 4173 --directory docs
 
 - `/weekly_ai_trend/`: 전체 목차
 - `/weekly_ai_trend/weeks/ai-code-review-01/`: 코드 리뷰 Week 01 화면
+- `/weekly_ai_trend/weeks/workflow-automation-01/`: 업무 자동화 Week 02 화면
+
+업무 자동화 회차는 외부 사례 두 개와 `프로젝트 소개 · 별도 자료` 자리로 구성한다. 프로젝트 자료는 발표자가 별도로 준비한다.

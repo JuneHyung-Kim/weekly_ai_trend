@@ -5,3 +5,9 @@ weeks:
     topic: ai-development-methodology
     subtopic: code-review
     scope: AI가 코드 작성자가 된 뒤 리뷰의 대상, 방식, 책임이 서로 다르게 바뀌는 사례
+  - id: workflow-automation-01
+    status: draft
+    topic: agent-adoption
+    subtopic: workflow-automation
+    scope: 외부 업무 자동화 사례 2개를 보고, 마지막에 우리 프로젝트를 비공개로 가볍게 소개한다.
+    private_notes: planning/research/workflow-automation-01.md

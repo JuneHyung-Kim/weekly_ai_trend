@@ -12,6 +12,9 @@ topics:
     title: AI 최신 모델 트렌드
     subtopics: []
   - id: agent-adoption
-    title: 최신 AI Agent 활용 동향
-    subtopics: []
+    title: AI Agent 및 활용
+    subtopics:
+      - id: workflow-automation
+        title: 업무 자동화
+        context: 실제 업무에 필요한 도구를 만들고 반복 작업을 자동화한 사례를 본다.
 

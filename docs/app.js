@@ -126,7 +126,13 @@
     </section>
     ${week.cases
       .map(
-        (item, index) => `<section id="${escapeHtml(item.id)}" class="case section-shell" data-index="${index + 1}">
+        (item, index) => item.type === "placeholder" ? `<section id="${escapeHtml(item.id)}" class="case section-shell" data-index="${index + 1}">
+          <div class="case-heading">
+            <p class="eyebrow">${escapeHtml(item.eyebrow)}</p>
+            <h2>${escapeHtml(item.title)}</h2>
+          </div>
+          <div class="visual-panel"><p class="summary">${escapeHtml(item.summary)}</p></div>
+        </section>` : `<section id="${escapeHtml(item.id)}" class="case section-shell" data-index="${index + 1}">
           <div class="case-heading">
             <p class="eyebrow">${escapeHtml(item.eyebrow)}</p>
             <h2>${escapeHtml(item.title)}</h2>
